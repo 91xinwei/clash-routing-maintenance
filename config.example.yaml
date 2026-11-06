@@ -1,0 +1,69 @@
+mixed-port: 7890
+allow-lan: false
+mode: rule
+log-level: info
+proxy-groups:
+- name: Proxy
+  type: select
+  proxies:
+  - REJECT
+- name: Claude
+  type: select
+  proxies:
+  - Proxy
+rule-providers:
+  reject:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/reject.txt
+    path: ./ruleset/reject.yaml
+    interval: 86400
+  direct:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/direct.txt
+    path: ./ruleset/direct.yaml
+    interval: 86400
+  proxy:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/proxy.txt
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+  private:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/private.txt
+    path: ./ruleset/private.yaml
+    interval: 86400
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/cncidr.txt
+    path: ./ruleset/cncidr.yaml
+    interval: 86400
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt
+    path: ./ruleset/lancidr.yaml
+    interval: 86400
+rules:
+- RULE-SET,private,DIRECT
+- RULE-SET,lancidr,DIRECT,no-resolve
+- DOMAIN-SUFFIX,anthropic.com,Claude
+- DOMAIN-SUFFIX,claude.ai,Claude
+- DOMAIN-SUFFIX,claude.com,Claude
+- DOMAIN-SUFFIX,clau.de,Claude
+- DOMAIN-SUFFIX,claudemcpclient.com,Claude
+- DOMAIN-SUFFIX,claudemcpcontent.com,Claude
+- DOMAIN-SUFFIX,claudeusercontent.com,Claude
+- DOMAIN,servd-anthropic-website.b-cdn.net,Claude
+- DOMAIN,anthropic.com.cdn.cloudflare.net,Claude
+- DOMAIN,anthropic.auth0.com,Claude
+- DOMAIN,anthropic-com.ghost.io,Claude
+- RULE-SET,reject,REJECT
+- RULE-SET,direct,DIRECT
+- RULE-SET,proxy,Proxy
+- RULE-SET,cncidr,DIRECT,no-resolve
+- MATCH,Proxy

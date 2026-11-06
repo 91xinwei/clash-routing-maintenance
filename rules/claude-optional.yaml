@@ -1,0 +1,7 @@
+payload:
+- DOMAIN-SUFFIX,sentry.io
+- DOMAIN-SUFFIX,statsigapi.net
+- DOMAIN-SUFFIX,intercom.io
+- DOMAIN-SUFFIX,intercomcdn.com
+- DOMAIN,browser-intake-us5-datadoghq.com
+- DOMAIN,cdn.usefathom.com
