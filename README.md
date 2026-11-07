@@ -28,3 +28,11 @@ python3 scripts/merge.py '/你的完整运行配置.yaml' merged.local.yaml
 ## 验证
 
 生成后运行 `mihomo -t -f merged.local.yaml`。在连接面板检查国内直连、海外命中手动选择；选择不可用节点后确认海外请求失败。仓库验证脚本检查远程规则可下载、payload非空及单组策略，不替代实际网络验证。
+
+## 在线引用
+
+远程覆写 YAML（Mihomo，须与已有节点订阅合并，替换 proxy-groups/rule-providers/rules 三个字段）：
+
+https://raw.githubusercontent.com/91xinwei/clash-routing-maintenance/master/override.yaml
+
+`include-all: true` 自动纳入已有代理节点与代理提供方；不引入其他策略组。请保证订阅提供方只提供代理节点。REJECT 可手动选择以阻断代理流量。此文件是覆写配置，不是含节点的完整订阅，不能替代机场订阅。客户端若仅支持导入完整订阅 URL，须先配置覆写/订阅转换；仅导入此链接不会获得节点。
