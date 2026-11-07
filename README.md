@@ -36,3 +36,9 @@ python3 scripts/merge.py '/你的完整运行配置.yaml' merged.local.yaml
 https://raw.githubusercontent.com/91xinwei/clash-routing-maintenance/master/override.yaml
 
 `include-all: true` 自动纳入已有代理节点与代理提供方；不引入其他策略组。请保证订阅提供方只提供代理节点。REJECT 可手动选择以阻断代理流量。此文件是覆写配置，不是含节点的完整订阅，不能替代机场订阅。客户端若仅支持导入完整订阅 URL，须先配置覆写/订阅转换；仅导入此链接不会获得节点。
+
+## Net.Coffee 全量补充（已启用）
+
+按用户要求，线上覆写已启用网页全部路由项：核心/CDN/认证/博客、共享遥测与客服域名、datadog/sentry/sift 关键词、Anthropic IPv4/IPv6 段、AS399358、GEOSITE anthropic 和 category-ntp。统一指向手动选择，并置于其他通用规则之前；`rules/claude-full.yaml` 记录域名和分类项。此前“可选遥测未启用”的描述由本节取代。
+
+全量版本要求 Mihomo 以及包含 anthropic/category-ntp 的 GeoSite 和 ASN 数据库，首次可能需要下载。共享服务和关键词会影响其他应用的同名域名；NTP 路由需要客户端接管 UDP 且节点支持 UDP。仅加入网页路由条目，不代表其关于 NTP 返回时区、消除泄露或风控的说法成立。未通过配置自动关闭 IPv6或改动系统时区。

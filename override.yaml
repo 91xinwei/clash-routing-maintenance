@@ -138,8 +138,6 @@ rule-providers:
     path: ./ruleset/managed-BiliBili.yaml
     interval: 86400
 rules:
-- RULE-SET,private,DIRECT
-- RULE-SET,lancidr,DIRECT,no-resolve
 - DOMAIN-SUFFIX,anthropic.com,手动选择
 - DOMAIN-SUFFIX,claude.ai,手动选择
 - DOMAIN-SUFFIX,claude.com,手动选择
@@ -151,6 +149,26 @@ rules:
 - DOMAIN,anthropic.com.cdn.cloudflare.net,手动选择
 - DOMAIN,anthropic.auth0.com,手动选择
 - DOMAIN,anthropic-com.ghost.io,手动选择
+- DOMAIN-SUFFIX,sentry.io,手动选择
+- DOMAIN-SUFFIX,statsigapi.net,手动选择
+- DOMAIN-SUFFIX,intercom.io,手动选择
+- DOMAIN-SUFFIX,intercomcdn.com,手动选择
+- DOMAIN,browser-intake-us5-datadoghq.com,手动选择
+- DOMAIN,cdn.usefathom.com,手动选择
+- DOMAIN,cdn.anthropic.com,手动选择
+- DOMAIN,mcp.anthropic.com,手动选择
+- DOMAIN,console.anthropic.com,手动选择
+- DOMAIN,workbench.anthropic.com,手动选择
+- DOMAIN-KEYWORD,datadog,手动选择
+- DOMAIN-KEYWORD,sentry,手动选择
+- DOMAIN-KEYWORD,sift,手动选择
+- GEOSITE,anthropic,手动选择
+- GEOSITE,category-ntp,手动选择
+- IP-CIDR,160.79.104.0/21,手动选择,no-resolve
+- IP-CIDR6,2607:6bc0::/32,手动选择,no-resolve
+- IP-ASN,399358,手动选择,no-resolve
+- RULE-SET,private,DIRECT
+- RULE-SET,lancidr,DIRECT,no-resolve
 - RULE-SET,managed-OpenAI,手动选择
 - RULE-SET,managed-Gemini,手动选择
 - RULE-SET,managed-GitHub,手动选择
