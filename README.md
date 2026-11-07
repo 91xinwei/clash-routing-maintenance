@@ -29,3 +29,13 @@ python3 scripts/merge.py '/你的运行配置.yaml' merged.local.yaml
 ## 验证
 
 导入前运行 `mihomo -t -f merged.local.yaml`；导入后在连接面板检查 claude.ai、api.anthropic.com、anthropic.auth0.com 命中 Claude 组并使用预期出口。YAML 解析检查不等同于实际网络验证。
+
+## 完整分类分流
+
+现已提供 OpenAI、Gemini、Claude、GitHub、Telegram、YouTube、Netflix、Disney、Spotify、Discord、TikTok、Steam、Epic、Apple、Microsoft、Google、BiliBili 独立策略组。应用分类来自 blackmatrix7/ios_rule_script，国内/国外及广告兜底来自 Loyalsoldier。
+
+Apple、Microsoft、Steam、Epic、BiliBili 默认直连，可在策略组中切换代理；其他海外服务默认代理。Gemini、YouTube 等细分类优先于 Google 总规则。各远程规则由客户端每 24 小时拉取更新。
+
+合并脚本已扩展为完整分流：复用名称匹配的原有组，缺失组以 Routing 前缀创建；原有个人规则优先于新增通用规则，Claude 核心规则置顶。原有个人规则若包含宽泛的 Google/国外/国内规则，可能提前截获新分类，请在连接面板检查命中规则，必要时调整个人规则顺序。模板独立使用时分类优先级完整生效。
+
+新增上游：https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash 。16 个远程分类地址已实际下载并验证 payload 非空。

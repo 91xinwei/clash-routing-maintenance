@@ -11,6 +11,75 @@ proxy-groups:
   type: select
   proxies:
   - Proxy
+- name: OpenAI
+  type: select
+  proxies:
+  - Proxy
+- name: Gemini
+  type: select
+  proxies:
+  - Proxy
+- name: GitHub
+  type: select
+  proxies:
+  - Proxy
+- name: Telegram
+  type: select
+  proxies:
+  - Proxy
+- name: YouTube
+  type: select
+  proxies:
+  - Proxy
+- name: Netflix
+  type: select
+  proxies:
+  - Proxy
+- name: Disney
+  type: select
+  proxies:
+  - Proxy
+- name: Spotify
+  type: select
+  proxies:
+  - Proxy
+- name: Discord
+  type: select
+  proxies:
+  - Proxy
+- name: TikTok
+  type: select
+  proxies:
+  - Proxy
+- name: Steam
+  type: select
+  proxies:
+  - DIRECT
+  - Proxy
+- name: Epic
+  type: select
+  proxies:
+  - DIRECT
+  - Proxy
+- name: Apple
+  type: select
+  proxies:
+  - DIRECT
+  - Proxy
+- name: Microsoft
+  type: select
+  proxies:
+  - DIRECT
+  - Proxy
+- name: Google
+  type: select
+  proxies:
+  - Proxy
+- name: BiliBili
+  type: select
+  proxies:
+  - DIRECT
+  - Proxy
 rule-providers:
   reject:
     type: http
@@ -48,6 +117,102 @@ rule-providers:
     url: https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/lancidr.txt
     path: ./ruleset/lancidr.yaml
     interval: 86400
+  managed-OpenAI:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml
+    path: ./ruleset/managed-OpenAI.yaml
+    interval: 86400
+  managed-Gemini:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Gemini/Gemini.yaml
+    path: ./ruleset/managed-Gemini.yaml
+    interval: 86400
+  managed-GitHub:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/GitHub/GitHub.yaml
+    path: ./ruleset/managed-GitHub.yaml
+    interval: 86400
+  managed-Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml
+    path: ./ruleset/managed-Telegram.yaml
+    interval: 86400
+  managed-YouTube:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml
+    path: ./ruleset/managed-YouTube.yaml
+    interval: 86400
+  managed-Netflix:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.yaml
+    path: ./ruleset/managed-Netflix.yaml
+    interval: 86400
+  managed-Disney:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Disney/Disney.yaml
+    path: ./ruleset/managed-Disney.yaml
+    interval: 86400
+  managed-Spotify:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Spotify/Spotify.yaml
+    path: ./ruleset/managed-Spotify.yaml
+    interval: 86400
+  managed-Discord:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Discord/Discord.yaml
+    path: ./ruleset/managed-Discord.yaml
+    interval: 86400
+  managed-TikTok:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml
+    path: ./ruleset/managed-TikTok.yaml
+    interval: 86400
+  managed-Steam:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Steam/Steam.yaml
+    path: ./ruleset/managed-Steam.yaml
+    interval: 86400
+  managed-Epic:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Epic/Epic.yaml
+    path: ./ruleset/managed-Epic.yaml
+    interval: 86400
+  managed-Apple:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple.yaml
+    path: ./ruleset/managed-Apple.yaml
+    interval: 86400
+  managed-Microsoft:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Microsoft/Microsoft.yaml
+    path: ./ruleset/managed-Microsoft.yaml
+    interval: 86400
+  managed-Google:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml
+    path: ./ruleset/managed-Google.yaml
+    interval: 86400
+  managed-BiliBili:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BiliBili/BiliBili.yaml
+    path: ./ruleset/managed-BiliBili.yaml
+    interval: 86400
 rules:
 - RULE-SET,private,DIRECT
 - RULE-SET,lancidr,DIRECT,no-resolve
@@ -62,6 +227,22 @@ rules:
 - DOMAIN,anthropic.com.cdn.cloudflare.net,Claude
 - DOMAIN,anthropic.auth0.com,Claude
 - DOMAIN,anthropic-com.ghost.io,Claude
+- RULE-SET,managed-OpenAI,OpenAI
+- RULE-SET,managed-Gemini,Gemini
+- RULE-SET,managed-GitHub,GitHub
+- RULE-SET,managed-Telegram,Telegram
+- RULE-SET,managed-YouTube,YouTube
+- RULE-SET,managed-Netflix,Netflix
+- RULE-SET,managed-Disney,Disney
+- RULE-SET,managed-Spotify,Spotify
+- RULE-SET,managed-Discord,Discord
+- RULE-SET,managed-TikTok,TikTok
+- RULE-SET,managed-Steam,Steam
+- RULE-SET,managed-Epic,Epic
+- RULE-SET,managed-Apple,Apple
+- RULE-SET,managed-Microsoft,Microsoft
+- RULE-SET,managed-Google,Google
+- RULE-SET,managed-BiliBili,BiliBili
 - RULE-SET,reject,REJECT
 - RULE-SET,direct,DIRECT
 - RULE-SET,proxy,Proxy
