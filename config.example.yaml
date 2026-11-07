@@ -3,83 +3,10 @@ allow-lan: false
 mode: rule
 log-level: info
 proxy-groups:
-- name: Proxy
+- name: 手动选择
   type: select
   proxies:
   - REJECT
-- name: Claude
-  type: select
-  proxies:
-  - Proxy
-- name: OpenAI
-  type: select
-  proxies:
-  - Proxy
-- name: Gemini
-  type: select
-  proxies:
-  - Proxy
-- name: GitHub
-  type: select
-  proxies:
-  - Proxy
-- name: Telegram
-  type: select
-  proxies:
-  - Proxy
-- name: YouTube
-  type: select
-  proxies:
-  - Proxy
-- name: Netflix
-  type: select
-  proxies:
-  - Proxy
-- name: Disney
-  type: select
-  proxies:
-  - Proxy
-- name: Spotify
-  type: select
-  proxies:
-  - Proxy
-- name: Discord
-  type: select
-  proxies:
-  - Proxy
-- name: TikTok
-  type: select
-  proxies:
-  - Proxy
-- name: Steam
-  type: select
-  proxies:
-  - DIRECT
-  - Proxy
-- name: Epic
-  type: select
-  proxies:
-  - DIRECT
-  - Proxy
-- name: Apple
-  type: select
-  proxies:
-  - DIRECT
-  - Proxy
-- name: Microsoft
-  type: select
-  proxies:
-  - DIRECT
-  - Proxy
-- name: Google
-  type: select
-  proxies:
-  - Proxy
-- name: BiliBili
-  type: select
-  proxies:
-  - DIRECT
-  - Proxy
 rule-providers:
   reject:
     type: http
@@ -216,35 +143,35 @@ rule-providers:
 rules:
 - RULE-SET,private,DIRECT
 - RULE-SET,lancidr,DIRECT,no-resolve
-- DOMAIN-SUFFIX,anthropic.com,Claude
-- DOMAIN-SUFFIX,claude.ai,Claude
-- DOMAIN-SUFFIX,claude.com,Claude
-- DOMAIN-SUFFIX,clau.de,Claude
-- DOMAIN-SUFFIX,claudemcpclient.com,Claude
-- DOMAIN-SUFFIX,claudemcpcontent.com,Claude
-- DOMAIN-SUFFIX,claudeusercontent.com,Claude
-- DOMAIN,servd-anthropic-website.b-cdn.net,Claude
-- DOMAIN,anthropic.com.cdn.cloudflare.net,Claude
-- DOMAIN,anthropic.auth0.com,Claude
-- DOMAIN,anthropic-com.ghost.io,Claude
-- RULE-SET,managed-OpenAI,OpenAI
-- RULE-SET,managed-Gemini,Gemini
-- RULE-SET,managed-GitHub,GitHub
-- RULE-SET,managed-Telegram,Telegram
-- RULE-SET,managed-YouTube,YouTube
-- RULE-SET,managed-Netflix,Netflix
-- RULE-SET,managed-Disney,Disney
-- RULE-SET,managed-Spotify,Spotify
-- RULE-SET,managed-Discord,Discord
-- RULE-SET,managed-TikTok,TikTok
-- RULE-SET,managed-Steam,Steam
-- RULE-SET,managed-Epic,Epic
-- RULE-SET,managed-Apple,Apple
-- RULE-SET,managed-Microsoft,Microsoft
-- RULE-SET,managed-Google,Google
-- RULE-SET,managed-BiliBili,BiliBili
+- DOMAIN-SUFFIX,anthropic.com,手动选择
+- DOMAIN-SUFFIX,claude.ai,手动选择
+- DOMAIN-SUFFIX,claude.com,手动选择
+- DOMAIN-SUFFIX,clau.de,手动选择
+- DOMAIN-SUFFIX,claudemcpclient.com,手动选择
+- DOMAIN-SUFFIX,claudemcpcontent.com,手动选择
+- DOMAIN-SUFFIX,claudeusercontent.com,手动选择
+- DOMAIN,servd-anthropic-website.b-cdn.net,手动选择
+- DOMAIN,anthropic.com.cdn.cloudflare.net,手动选择
+- DOMAIN,anthropic.auth0.com,手动选择
+- DOMAIN,anthropic-com.ghost.io,手动选择
+- RULE-SET,managed-OpenAI,手动选择
+- RULE-SET,managed-Gemini,手动选择
+- RULE-SET,managed-GitHub,手动选择
+- RULE-SET,managed-Telegram,手动选择
+- RULE-SET,managed-YouTube,手动选择
+- RULE-SET,managed-Netflix,手动选择
+- RULE-SET,managed-Disney,手动选择
+- RULE-SET,managed-Spotify,手动选择
+- RULE-SET,managed-Discord,手动选择
+- RULE-SET,managed-TikTok,手动选择
+- RULE-SET,managed-Steam,手动选择
+- RULE-SET,managed-Epic,手动选择
+- RULE-SET,managed-Apple,手动选择
+- RULE-SET,managed-Microsoft,手动选择
+- RULE-SET,managed-Google,手动选择
+- RULE-SET,managed-BiliBili,手动选择
 - RULE-SET,reject,REJECT
 - RULE-SET,direct,DIRECT
-- RULE-SET,proxy,Proxy
+- RULE-SET,proxy,手动选择
 - RULE-SET,cncidr,DIRECT,no-resolve
-- MATCH,Proxy
+- MATCH,手动选择
